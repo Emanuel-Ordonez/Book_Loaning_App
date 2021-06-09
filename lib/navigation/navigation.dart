@@ -35,8 +35,4 @@ class _NavigationPageState extends State<NavigationPage> {
       ),
     );
   }
-
-  void doSomthing() {
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => navigation()));
-  }
 }

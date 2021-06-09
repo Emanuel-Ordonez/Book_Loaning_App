@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mannys_app/navigation/components/profilePage.dart';
 
 // ignore: unused_import
 import 'login/login.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       //home: MyLoginPage(title: 'Login'),
 
       //temperary
-      home: NavigationPage(title: 'Navigation',)
+      //home: NavigationPage(title: 'Navigation',)
+      home: ProfilePage(title: 'profile',)
     );
   }
 }

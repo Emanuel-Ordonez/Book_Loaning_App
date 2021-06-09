@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class NavigationPage extends StatefulWidget {
-  NavigationPage({Key? key, required this.title}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  ProfilePage({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,10 +16,10 @@ class NavigationPage extends StatefulWidget {
   final String title;
 
   @override
-  _NavigationPageState createState() => _NavigationPageState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _NavigationPageState extends State<NavigationPage> {
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -29,14 +29,32 @@ class _NavigationPageState extends State<NavigationPage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(title: Text('Navigation')),
+      appBar: AppBar(title: Text('Profile Page')),
       body: Center(
-        
+        child: Column(
+          children: [
+            Container(
+              height: 150,
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment(0, 0),
+                    child: Image.asset(
+                      'assets/images/loginImage.jpg',
+                      width: double.maxFinite,
+                      height: double.maxFinite,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+
+            ),
+          ]
+        ),
       ),
     );
-  }
-
-  void doSomthing() {
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => navigation()));
   }
 }
