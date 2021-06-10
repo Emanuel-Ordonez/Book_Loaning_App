@@ -63,7 +63,9 @@ class _NavigationPageState extends State<NavigationPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,
-        onTap: (value) => _onItemTapped(value),
+        onTap: (value) => {
+          _onItemTapped(value)
+          },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
