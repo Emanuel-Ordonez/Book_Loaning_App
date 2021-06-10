@@ -29,32 +29,83 @@ class _ProfilePageState extends State<ProfilePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(title: Text('Profile Page')),
+      //while have username on appBar
+      appBar: AppBar(title: Text('Username should be attached')),
+      
       body: Center(
-        child: Column(
-          children: [
-            Container(
-              height: 150,
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: Alignment(0, 0),
-                    child: Image.asset(
-                      'assets/images/loginImage.jpg',
-                      width: double.maxFinite,
-                      height: double.maxFinite,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-
-            ),
-          ]
-        ),
+        child: Column(children: [
+          userDetails(),
+          Container(),
+        ]),
       ),
     );
   }
+
+  Widget userDetails() {
+    return Container(
+      height: 200,
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        children: [
+          topRowUserDetail(),
+          Container(
+            padding: const EdgeInsets.only(top: 10),
+            width: double.maxFinite,
+            child: Text(
+              'motto data should be attaches'
+
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget topRowUserDetail() {
+    return Row(children: [
+      Container(
+        height: 70,
+        width: 70,
+        decoration: BoxDecoration(
+          color: Color.fromARGB(175, 0, 0, 0),
+          borderRadius: BorderRadius.circular(50),
+          border: Border.all(
+            color: Colors.blue,
+          ),
+        ),
+        child: Image.asset(
+          'assets/images/loginImage.jpg',
+          width: double.maxFinite,
+          height: double.maxFinite,
+        ),
+      ),
+      Container(
+        padding: const EdgeInsets.only(left: 20),
+        child: Row(children: [
+          userFollowing('Workouts', 60),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: userFollowing('Following', 1010),
+          ),
+          userFollowing('Followers', 210),
+        ]),
+      ),
+    ]);
+  }
+
+  Widget userFollowing(String title, int num) {
+    return Column(
+      children: [
+        Text(
+          title,
+        ),
+        Text(
+          num.toString(),
+        ),
+      ],
+    );
+  }
+
+
+
 }
