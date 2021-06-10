@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mannys_app/navigation/components/profilePage.dart';
 
 class NavigationPage extends StatefulWidget {
   NavigationPage({Key? key, required this.title}) : super(key: key);
@@ -20,31 +21,35 @@ class NavigationPage extends StatefulWidget {
 }
 
 class _NavigationPageState extends State<NavigationPage> {
+  String navigationTitle = 'Home';
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
+
+  static List<Widget> _widgetOptions = <Widget>[
+    Container(
+      color: Color.fromARGB(65, 100, 150, 100),
     ),
-    Text(
-      'Index 1: Search',
-      style: optionStyle,
+    Container(
+      color: Color.fromARGB(65, 100, 150, 100),
     ),
-    Text(
-      'Index 2: History',
-      style: optionStyle,
+    Container(
+      color: Color.fromARGB(65, 100, 150, 100),
     ),
-    Text(
-      'Index 3: Profile',
-      style: optionStyle,
+    Container(
+      color: Color.fromARGB(65, 100, 150, 100),
+      child: profilePage(),
     ),
   ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (index == 0)
+        navigationTitle = 'Home';
+      else if (index == 1)
+        navigationTitle = 'Search';
+      else if (index == 2)
+        navigationTitle = 'History';
+      else if (index == 3) navigationTitle = 'Profile';
     });
   }
 
@@ -57,15 +62,9 @@ class _NavigationPageState extends State<NavigationPage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(title: Text('Navigation')),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex)
-      ),
+      appBar: AppBar(title: Text(navigationTitle)),
+      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        onTap: (value) => {
-          _onItemTapped(value)
-          },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -88,6 +87,9 @@ class _NavigationPageState extends State<NavigationPage> {
             backgroundColor: Colors.teal,
           ),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }

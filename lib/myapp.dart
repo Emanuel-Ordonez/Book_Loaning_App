@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mannys_app/navigation/components/profilePage.dart';
-
 // ignore: unused_import
 import 'login/login.dart';
 import 'navigation/navigation.dart';
+import '/navigation/components/profilePage.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
