@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
       //home: MyLoginPage(title: 'Login'),
 
       //temperary
-      //home: NavigationPage(title: 'Navigation',)
-      home: ProfilePage(title: 'profile',)
+      home: NavigationPage(title: 'Navigation',)
+      //home: ProfilePage(title: 'profile',)
     );
   }
 }
