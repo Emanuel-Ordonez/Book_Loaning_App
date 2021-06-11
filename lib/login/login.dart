@@ -34,19 +34,18 @@ class _MyLoginPageState extends State<MyLoginPage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       body: Center(
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment(0, 0),
-              child: backgroundImage(),
-            ),
-            Align(
-              alignment: Alignment(0, 0),
-              child: loginContainer(),
-            ),
-          ],
-        )
-      ),
+          child: Stack(
+        children: [
+          Align(
+            alignment: Alignment(0, 0),
+            child: backgroundImage(),
+          ),
+          Align(
+            alignment: Alignment(0, 0),
+            child: loginContainer(),
+          ),
+        ],
+      )),
     );
   }
 
@@ -83,13 +82,14 @@ class _MyLoginPageState extends State<MyLoginPage> {
   }
 
   Widget topLabel() {
+    var labelText = "Manny's App";
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Text(
-        'Login',
+        labelText,
         style: TextStyle(
           color: Colors.black,
-          fontSize: 35,
+          fontSize: 30,
         ),
       ),
     );
@@ -155,7 +155,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
           child: TextButton(
             onPressed: () => doSomthing(),
             child: Text(
-              'Login',
+              'Sign in',
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -167,18 +167,18 @@ class _MyLoginPageState extends State<MyLoginPage> {
       padding: const EdgeInsets.all(10.0),
       child: Center(
         child: Row(children: [
-          Expanded(
-            child: Center(
-              child: Text(
-                'Forgot Username',
-                style: TextStyle(color: Colors.blueAccent),
-              ),
+          Center(
+            child: Text(
+              'Forgot ID/Password?',
+              style: TextStyle(color: Colors.blueAccent),
             ),
           ),
           Expanded(
-            child: Text(
-              'Sign up',
-              style: TextStyle(color: Colors.blueAccent),
+            child: Center(
+              child: Text(
+                'Sign up',
+                style: TextStyle(color: Colors.blueAccent),
+              ),
             ),
           ),
         ]),
