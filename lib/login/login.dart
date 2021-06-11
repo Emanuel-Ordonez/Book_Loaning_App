@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -133,6 +135,20 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   ),
                 ),
               )),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+              child: Center(
+                child: Row(
+                  children: [
+                    Text(
+                      'Sign up',
+                    ),
+                    Text(
+                      'Forgot password'
+                    ),
+                  ]),
+              ),
+            ),
         ],
       ),
     );

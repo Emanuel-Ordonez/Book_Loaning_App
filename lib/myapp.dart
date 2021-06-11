@@ -22,10 +22,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.teal,
       ),
-      //home: MyLoginPage(title: 'Login'),
+      home: MyLoginPage(title: 'Login'),
 
       //temperary
-      home: NavigationPage(title: 'Navigation',)
+      //home: NavigationPage(title: 'Navigation',)
       //home: ProfilePage(title: 'profile',)
     );
   }
