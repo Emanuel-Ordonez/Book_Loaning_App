@@ -34,23 +34,28 @@ class _MyLoginPageState extends State<MyLoginPage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       body: Center(
-          child: Stack(
-        children: [
-          Align(
-            alignment: Alignment(0, 0),
-            child: Image.asset(
-              'assets/images/loginImage.jpg',
-              width: double.infinity,
-              height: double.infinity,
-              fit: BoxFit.cover,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment(0, 0),
+              child: backgroundImage(),
             ),
-          ),
-          Align(
-            alignment: Alignment(0, 0),
-            child: loginContainer(),
-          ),
-        ],
-      )),
+            Align(
+              alignment: Alignment(0, 0),
+              child: loginContainer(),
+            ),
+          ],
+        )
+      ),
+    );
+  }
+
+  Widget backgroundImage() {
+    return Image.asset(
+      'assets/images/loginImage.jpg',
+      width: double.infinity,
+      height: double.infinity,
+      fit: BoxFit.cover,
     );
   }
 
@@ -61,100 +66,130 @@ class _MyLoginPageState extends State<MyLoginPage> {
         border: Border.all(
           color: Colors.black,
         ),
-        color: Color.fromARGB(175, 250, 250, 250),
+        color: Color.fromARGB(230, 250, 250, 250),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              'Login',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 35,
-              ),
-            ),
-          ),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(175, 250, 250, 250),
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-                    hintText: 'Username',
-                    border: InputBorder.none,
-                  ),
-                ),
-              )),
-          Padding(
-              padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(175, 250, 250, 250),
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-                    hintText: 'Password',
-                    border: InputBorder.none,
-                  ),
-                ),
-              )),
-          Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
-                height: 40,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: TextButton(
-                  onPressed: () => doSomthing(),
-                  child: Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              )),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-              child: Center(
-                child: Row(
-                  children: [
-                    Text(
-                      'Sign up',
-                    ),
-                    Text(
-                      'Forgot password'
-                    ),
-                  ]),
-              ),
-            ),
+          topLabel(),
+          usernameInput(),
+          passwordInput(),
+          loginButton(),
+          bottomLinks(),
         ],
       ),
     );
   }
 
+  Widget topLabel() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Text(
+        'Login',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 35,
+        ),
+      ),
+    );
+  }
+
+  Widget usernameInput() {
+    return Padding(
+        padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+        child: Container(
+          height: 50,
+          decoration: BoxDecoration(
+            color: Color.fromARGB(175, 250, 250, 250),
+            borderRadius: BorderRadius.circular(30),
+            border: Border.all(
+              color: Colors.black,
+            ),
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+              hintText: 'Username',
+              border: InputBorder.none,
+            ),
+          ),
+        ));
+  }
+
+  Widget passwordInput() {
+    return Padding(
+        padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+        child: Container(
+          height: 50,
+          decoration: BoxDecoration(
+            color: Color.fromARGB(175, 250, 250, 250),
+            borderRadius: BorderRadius.circular(30),
+            border: Border.all(
+              color: Colors.black,
+            ),
+          ),
+          child: TextField(
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+              hintText: 'Password',
+              border: InputBorder.none,
+            ),
+          ),
+        ));
+  }
+
+  Widget loginButton() {
+    return Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+          height: 40,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.black,
+            ),
+            color: Colors.blueAccent,
+            borderRadius: BorderRadius.circular(25),
+          ),
+          child: TextButton(
+            onPressed: () => doSomthing(),
+            child: Text(
+              'Login',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ));
+  }
+
+  Widget bottomLinks() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Center(
+        child: Row(children: [
+          Expanded(
+            child: Center(
+              child: Text(
+                'Forgot Username',
+                style: TextStyle(color: Colors.blueAccent),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              'Sign up',
+              style: TextStyle(color: Colors.blueAccent),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+
   void doSomthing() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationPage(title: 'Navigation Page')));
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => NavigationPage(title: 'Navigation Page')));
   }
 }
