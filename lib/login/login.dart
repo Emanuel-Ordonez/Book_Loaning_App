@@ -60,7 +60,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
 
   Widget loginContainer() {
     return Container(
-      width: 250,
+      width: MediaQuery.of(context).size.width * .7,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.black,
@@ -89,7 +89,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
         labelText,
         style: TextStyle(
           color: Colors.black,
-          fontSize: 30,
+          fontSize: 32,
         ),
       ),
     );
@@ -143,7 +143,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
     return Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(
-          padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
           height: 40,
           decoration: BoxDecoration(
             border: Border.all(
@@ -167,11 +167,9 @@ class _MyLoginPageState extends State<MyLoginPage> {
       padding: const EdgeInsets.all(10.0),
       child: Center(
         child: Row(children: [
-          Center(
-            child: Text(
-              'Forgot ID/Password?',
-              style: TextStyle(color: Colors.blueAccent),
-            ),
+          Text(
+            'Forgot ID/Password?',
+            style: TextStyle(color: Colors.blueAccent),
           ),
           Expanded(
             child: Center(

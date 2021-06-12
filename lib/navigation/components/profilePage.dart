@@ -22,7 +22,6 @@ Widget userDetails() {
           width: double.maxFinite,
           child: Text(
             'motto data should be attaches'
-
           ),
         ),
       ],
