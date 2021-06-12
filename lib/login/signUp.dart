@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:mannys_app/login/common/commonComponents.dart';
 import 'package:mannys_app/login/login.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -34,31 +36,30 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       body: Center(
           child: Stack(
-            children: [
-              Align(
-                alignment: Alignment(0, 0),
-                child: backgroundImage(),
-              ),
-              Align(
-                alignment: Alignment(0, 0),
-                child: loginContainer(),
-              ),
-            ],
-          )
-      ),
+        children: [
+          Align(
+            alignment: Alignment(0, 0),
+            child: background(),
+          ),
+          Align(
+            alignment: Alignment(0, 0),
+            child: signUpContainer(),
+          ),
+        ],
+      )),
     );
   }
 
-  Widget backgroundImage() {
+  Widget background() {
     return Container(
       width: MediaQuery.of(context).size.width * 1,
       color: Color.fromARGB(125, 100, 150, 100),
     );
   }
 
-  Widget loginContainer() {
+  Widget signUpContainer() {
     return Container(
-      width: MediaQuery.of(context).size.width * .7,
+      width: MediaQuery.of(context).size.width * .8,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.black,
@@ -69,9 +70,12 @@ class _SignUpPageState extends State<SignUpPage> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          topLabel(),
+          label(),
+          emailInput(),
           usernameInput(),
+          verifyUsernameInput(),
           passwordInput(),
+          verifyPasswordInput(),
           signupButton(),
           bottomLinks(),
         ],
@@ -79,62 +83,28 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget topLabel() {
-    var labelText = "Manny's App";
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Text(
-        labelText,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 32,
-        ),
-      ),
-    );
+  Widget label() {
+    return topLabel('Create Account');
+  }
+
+  Widget emailInput() {
+    return textField('Email');
   }
 
   Widget usernameInput() {
-    return Padding(
-        padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-        child: Container(
-          height: 50,
-          decoration: BoxDecoration(
-            color: Color.fromARGB(175, 250, 250, 250),
-            borderRadius: BorderRadius.circular(30),
-            border: Border.all(
-              color: Colors.black,
-            ),
-          ),
-          child: TextField(
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-              hintText: 'Username',
-              border: InputBorder.none,
-            ),
-          ),
-        ));
+    return textField('Username');
+  }
+
+  Widget verifyUsernameInput() {
+    return textField('Verify Username');
   }
 
   Widget passwordInput() {
-    return Padding(
-        padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-        child: Container(
-          height: 50,
-          decoration: BoxDecoration(
-            color: Color.fromARGB(175, 250, 250, 250),
-            borderRadius: BorderRadius.circular(30),
-            border: Border.all(
-              color: Colors.black,
-            ),
-          ),
-          child: TextField(
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-              hintText: 'Password',
-              border: InputBorder.none,
-            ),
-          ),
-        ));
+    return textField('Password');
+  }
+
+  Widget verifyPasswordInput() {
+    return textField('Verify Password');
   }
 
   Widget signupButton() {
@@ -167,9 +137,14 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Row(children: [
           Expanded(
             child: Center(
-              child: Text(
-                'Back to login',
-                style: TextStyle(color: Colors.blueAccent),
+              child: RichText(
+                text: TextSpan(
+                    text: 'Back to login',
+                    style: TextStyle(color: Colors.blueAccent),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        backToLogin();
+                      }),
               ),
             ),
           ),
@@ -183,5 +158,9 @@ class _SignUpPageState extends State<SignUpPage> {
         context,
         MaterialPageRoute(
             builder: (context) => LoginPage(title: 'Login Page')));
+  }
+
+  void backToLogin() {
+    Navigator.pop(context);
   }
 }

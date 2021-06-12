@@ -49,7 +49,8 @@ class _NavigationPageState extends State<NavigationPage> {
         navigationTitle = 'Search';
       else if (index == 2)
         navigationTitle = 'History';
-      else if (index == 3) navigationTitle = 'Profile';
+      else if (index == 3) 
+        navigationTitle = 'Profile';
     });
   }
 

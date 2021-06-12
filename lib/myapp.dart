@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mannys_app/login/forgotIdPassword.dart';
 import 'package:mannys_app/login/signUp.dart';
 // ignore: unused_import
 import 'login/login.dart';
@@ -23,12 +24,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.teal,
       ),
-      //home: LoginPage(title: 'Login'),
+      home: LoginPage(title: 'Login'),
 
       //temperary
       //home: NavigationPage(title: 'Navigation',)
       //home: ProfilePage(title: 'profile',)
-      home: SignUpPage(title: 'Sign Up',)
+      //home: SignUpPage(title: 'Sign Up',)
+      //home: ForgotIDPasswordPage(title: 'Forgot ID/Password')
     );
   }
 }
