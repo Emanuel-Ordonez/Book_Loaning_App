@@ -2,12 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mannys_app/login/login.dart';
 
-import '../navigation/navigation.dart';
-import 'signUp.dart';
-
-class LoginPage extends StatefulWidget {
-  LoginPage({Key? key, required this.title}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  SignUpPage({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -21,10 +19,10 @@ class LoginPage extends StatefulWidget {
   final String title;
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -74,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
           topLabel(),
           usernameInput(),
           passwordInput(),
-          loginButton(),
+          signupButton(),
           bottomLinks(),
         ],
       ),
@@ -139,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
         ));
   }
 
-  Widget loginButton() {
+  Widget signupButton() {
     return Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(
@@ -153,9 +151,9 @@ class _LoginPageState extends State<LoginPage> {
             borderRadius: BorderRadius.circular(25),
           ),
           child: TextButton(
-            onPressed: () => login(),
+            onPressed: () => signUp(),
             child: Text(
-              'Login',
+              'Sign up',
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -167,14 +165,10 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.all(10.0),
       child: Center(
         child: Row(children: [
-          Text(
-            'Forgot ID/Password?',
-            style: TextStyle(color: Colors.blueAccent),
-          ),
           Expanded(
             child: Center(
               child: Text(
-                'Sign up',
+                'Back to login',
                 style: TextStyle(color: Colors.blueAccent),
               ),
             ),
@@ -184,17 +178,10 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void login() {
+  void signUp() {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => NavigationPage(title: 'Navigation Page')));
-  }
-
-  void goToSignUp(){
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SignUpPage(title: 'Sign Up Page')));
+            builder: (context) => LoginPage(title: 'Login Page')));
   }
 }

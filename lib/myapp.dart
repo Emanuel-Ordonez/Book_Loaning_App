@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mannys_app/login/signUp.dart';
 // ignore: unused_import
 import 'login/login.dart';
 import 'navigation/navigation.dart';
@@ -22,11 +23,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.teal,
       ),
-      home: MyLoginPage(title: 'Login'),
+      //home: LoginPage(title: 'Login'),
 
       //temperary
       //home: NavigationPage(title: 'Navigation',)
       //home: ProfilePage(title: 'profile',)
+      home: SignUpPage(title: 'Sign Up',)
     );
   }
 }
