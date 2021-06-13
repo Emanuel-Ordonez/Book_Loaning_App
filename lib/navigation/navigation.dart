@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mannys_app/navigation/components/homePage.dart';
 import 'package:mannys_app/navigation/components/profilePage.dart';
 
 class NavigationPage extends StatefulWidget {
@@ -27,6 +28,7 @@ class _NavigationPageState extends State<NavigationPage> {
   static List<Widget> _widgetOptions = <Widget>[
     Container(
       color: Color.fromARGB(65, 100, 150, 100),
+      child: homePage(),
     ),
     Container(
       color: Color.fromARGB(65, 100, 150, 100),

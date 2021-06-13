@@ -51,22 +51,13 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget background() {
-    return Container(
-      width: MediaQuery.of(context).size.width * 1,
-      color: Color.fromARGB(125, 100, 150, 100),
-    );
+    return backgroundLogin();
   }
 
   Widget signUpContainer() {
     return Container(
       width: MediaQuery.of(context).size.width * .8,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.black,
-        ),
-        color: Color.fromARGB(170, 250, 250, 250),
-        borderRadius: BorderRadius.circular(10),
-      ),
+      decoration: loginBoxDecor(),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -109,17 +100,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget signupButton() {
     return Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.fromLTRB(0, 15, 0, 10),
         child: Container(
           padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
           height: 40,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black,
-            ),
-            color: Colors.blueAccent,
-            borderRadius: BorderRadius.circular(25),
-          ),
+          decoration: submitButtonDecor(),
           child: TextButton(
             onPressed: () => signUp(),
             child: Text(
@@ -132,7 +117,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget bottomLinks() {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
       child: Center(
         child: Row(children: [
           Expanded(
