@@ -15,7 +15,10 @@ Widget cardview() {
       children: [
         Row(
           children: [
-            Text('username'),
+            Text(
+              'username',
+              style: TextStyle(fontSize: 20),
+            ),
             
           ]
         ),
