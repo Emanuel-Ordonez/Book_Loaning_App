@@ -4,13 +4,14 @@ Widget homePage() {
   return Column(
     children: [
       cardview(),
+      cardview(),
     ]
   );
 }
 
 Widget cardview() {
   return Container(
-    color: Colors.amber,
+    padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
     child: Column(
       children: [
         Row(
@@ -19,8 +20,13 @@ Widget cardview() {
               'username',
               style: TextStyle(fontSize: 20),
             ),
-            
           ]
+        ),
+        Image.asset(
+          'assets/images/loginImage.jpg',
+          width: double.maxFinite,
+          height: 150,
+          fit: BoxFit.cover,
         ),
       ]
     ),
