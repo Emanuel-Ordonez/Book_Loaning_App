@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mannys_app/navigation/components/inventoryPage.dart';
 import 'package:mannys_app/navigation/components/homePage.dart';
 import 'package:mannys_app/navigation/components/profilePage.dart';
+import 'package:mannys_app/navigation/components/searchPage.dart';
 
 class NavigationPage extends StatefulWidget {
   NavigationPage({Key? key, required this.title}) : super(key: key);
@@ -32,9 +34,11 @@ class _NavigationPageState extends State<NavigationPage> {
     ),
     Container(
       color: Color.fromARGB(65, 100, 150, 100),
+      child: searchPage(),
     ),
     Container(
       color: Color.fromARGB(65, 100, 150, 100),
+      child: inventoryPage(),
     ),
     Container(
       color: Color.fromARGB(65, 100, 150, 100),
@@ -51,8 +55,7 @@ class _NavigationPageState extends State<NavigationPage> {
         navigationTitle = 'Search';
       else if (index == 2)
         navigationTitle = 'History';
-      else if (index == 3) 
-        navigationTitle = 'Profile';
+      else if (index == 3) navigationTitle = 'Profile';
     });
   }
 
@@ -64,34 +67,35 @@ class _NavigationPageState extends State<NavigationPage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
     return Scaffold(
       appBar: AppBar(title: Text(navigationTitle)),
       body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.archive_outlined),
             label: 'Home',
-            backgroundColor: Colors.teal,
+            backgroundColor: Colors.indigoAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
-            backgroundColor: Colors.teal,
+            backgroundColor: Colors.indigoAccent,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-            backgroundColor: Colors.teal,
+            icon: Icon(Icons.inventory_2_outlined),
+            label: 'Inventory',
+            backgroundColor: Colors.indigoAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.portrait_rounded),
             label: 'Profile',
-            backgroundColor: Colors.teal,
+            backgroundColor: Colors.indigoAccent,
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.amber[600],
         onTap: _onItemTapped,
       ),
     );

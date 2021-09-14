@@ -7,6 +7,18 @@ Widget homePage() {
         cardview(),
         cardview(),
         cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
+        cardview(),
     ])
   );
 }
