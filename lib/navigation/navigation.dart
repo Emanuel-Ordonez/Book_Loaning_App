@@ -1,9 +1,14 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mannys_app/navigation/components/inventoryPage.dart';
 import 'package:mannys_app/navigation/components/homePage.dart';
 import 'package:mannys_app/navigation/components/profilePage.dart';
 import 'package:mannys_app/navigation/components/searchPage.dart';
+
+//navigation to other pages imports
+import 'package:mannys_app/scanner/bookHomePage.dart';
 
 class NavigationPage extends StatefulWidget {
   NavigationPage({Key? key, required this.title}) : super(key: key);
@@ -28,22 +33,34 @@ class _NavigationPageState extends State<NavigationPage> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    Container(
-      color: Color.fromARGB(65, 100, 150, 100),
-      child: homePage(),
-    ),
-    Container(
-      color: Color.fromARGB(65, 100, 150, 100),
-      child: searchPage(),
-    ),
-    Container(
-      color: Color.fromARGB(65, 100, 150, 100),
-      child: inventoryPage(),
-    ),
-    Container(
-      color: Color.fromARGB(65, 100, 150, 100),
-      child: profilePage(),
-    ),
+    HomePage(title: 'Home Page'),
+    // Container(
+    //   width: double.maxFinite,
+    //   height: double.maxFinite, 
+    //   color: Color.fromARGB(65, 100, 150, 100),
+    //   child: homePage(),
+    // ),
+    SearchPage(),
+    // Container(
+    //   width: double.maxFinite,
+    //   height: double.maxFinite,
+    //   color: Color.fromARGB(65, 100, 150, 100),
+    //   child: searchPage(),
+    // ),
+    InventoryPage(),
+    // Container(
+    //   width: double.maxFinite,
+    //   height: double.maxFinite,
+    //   color: Color.fromARGB(65, 100, 150, 100),
+    //   child: inventoryPage(),
+    // ),
+    ProfilePage(),
+    // Container(
+    //   width: double.maxFinite,
+    //   height: double.maxFinite,
+    //   color: Color.fromARGB(65, 100, 150, 100),
+    //   child: profilePage(),
+    // ),
   ];
 
   void _onItemTapped(int index) {
@@ -70,7 +87,9 @@ class _NavigationPageState extends State<NavigationPage> {
 
     return Scaffold(
       appBar: AppBar(title: Text(navigationTitle)),
-      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+      body: Center(
+          child: _widgetOptions.elementAt(_selectedIndex)
+        ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

@@ -1,14 +1,18 @@
+import 'dart:html';
 import 'dart:ui';
+import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mannys_app/globalCommon.dart';
-import 'package:mannys_app/scanner/bookHomePage.dart';
+import 'package:mannys_app/login/common/commonComponents.dart';
+import 'package:mannys_app/login/login.dart';
 
-import 'searchPage.dart';
 
-
-class HomePage extends StatefulWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
+class ScannerPage extends StatefulWidget {
+  ScannerPage({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -22,12 +26,13 @@ class HomePage extends StatefulWidget {
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  ScannerPageState createState() => ScannerPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class ScannerPageState extends State<ScannerPage> {
   @override
   Widget build(BuildContext context) {
+    String navigationTitle = 'Scanner Page';
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -35,48 +40,51 @@ class _HomePageState extends State<HomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      body: Center(
-        child: Container(
-          width: double.maxFinite,
-          height: double.maxFinite, 
-          color: Color.fromARGB(65, 100, 150, 100),
-          child: mainWidget(),
-        ),
+        appBar: AppBar(title: Text(navigationTitle)),
+        body: Center(
+          child: ScannerContainer(),
+        ));
+  }
+
+  Widget ScannerContainer() {
+    return Container(
+      width: MediaQuery.of(context).size.width * .9,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          scanButton(),
+        ],
       ),
     );
   }
 
-  Widget mainWidget(){
-    return SingleChildScrollView(
-        child: Column(
-          children: [
-            checkoutReturnButton(),
-        ])
-      );
-  }
-
-  Widget checkoutReturnButton() {
+  Widget scanButton() {
     return Padding(
         padding: const EdgeInsets.fromLTRB(0, 15, 0, 10),
         child: Container(
           padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-          height: 50,
+          height: 40,
           decoration: buttonDecor(),
           child: TextButton(
-            onPressed: () => goToScanner(),
+            onPressed: () => barcodeScanner(),
             child: Text(
-              'Checkout/Return Books',
+              'Scanner',
               style: TextStyle(color: Colors.white),
             ),
           ),
         ));
   }
 
-  void goToScanner(){
-    Navigator.push(
-      context,
-        MaterialPageRoute(
-            builder: (context) =>
-                BookHomePage(title: 'Book Home  Page')));
+  void barcodeScanner() async {
+    // BarcodeDetector barcodeDetector = FirebaseVision.instance.barcodeDetector();
+    // var _barCode = await barcodeDetector.detectInImage(myImage);
+    // var result = "";
+
+    // for (Barcode barcode in _barCode) {
+    //   setState(() {
+    //     result = barcode.displayValue;
+    //   });
+    // }
   }
+
 }

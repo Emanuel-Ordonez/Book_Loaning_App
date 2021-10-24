@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mannys_app/login/forgotIdPassword.dart';
 import 'package:mannys_app/login/signUp.dart';
+import 'package:mannys_app/scanner/bookHomePage.dart';
 // ignore: unused_import
 import 'login/login.dart';
 import 'navigation/navigation.dart';
@@ -28,9 +29,10 @@ class MyApp extends StatelessWidget {
 
       //temperary
       home: NavigationPage(title: 'Navigation',)
-      //home: ProfilePage(title: 'profile',)
+      //home: ProfilePage(title: 'Profile',)
       //home: SignUpPage(title: 'Sign Up',)
       //home: ForgotIDPasswordPage(title: 'Forgot ID/Password')
+      //home: BookHomePage(title: 'Book Scanner'),
     );
   }
 }

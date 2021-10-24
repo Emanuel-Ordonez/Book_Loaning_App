@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:mannys_app/globalCommon.dart';
 import 'package:mannys_app/login/common/commonComponents.dart';
 import 'package:mannys_app/login/login.dart';
 
@@ -104,7 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Container(
           padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
           height: 40,
-          decoration: submitButtonDecor(),
+          decoration: buttonDecor(),
           child: TextButton(
             onPressed: () => signUp(),
             child: Text(

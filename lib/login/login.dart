@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:mannys_app/globalCommon.dart';
 import 'package:mannys_app/login/common/commonComponents.dart';
 import 'package:mannys_app/login/forgotIDPassword.dart';
 
@@ -93,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Container(
           padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
           height: 40,
-          decoration: submitButtonDecor(),
+          decoration: buttonDecor(),
           child: TextButton(
             onPressed: () => login(),
             child: Text(
