@@ -42,7 +42,7 @@ Widget cardview() {
      padding: const EdgeInsets.all(10),
      child: Row(children: [
        Text(
-         'username',
+         'Book Title',
          style: TextStyle(fontSize: 20),
        ),
      ]),
