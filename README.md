@@ -1,6 +1,6 @@
-# mannys_app
+# Book_Loaning_App
 
-A new Flutter project.
+A new Flutter project. With the purpose of tracking book records.
 
 ## Getting Started
 
